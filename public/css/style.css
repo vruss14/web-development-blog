@@ -15,16 +15,34 @@
 }
 
 .custom-title {
-  font-family: 'Lobster', cursive;
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: 1%;
 }
 
 footer {
   background-color: #0275d8;
-  font-family: 'Lobster', cursive;
   font-size: 3rem;
   color: white;
   text-align: center;
   padding: 5%;
+}
+
+footer span {
+  font-family: 'Lobster', cursive;
+}
+
+#post-title {
+  color: #0275d8;
+}
+
+.custom-post {
+  font-size: 24px;
+}
+
+.custom-nav {
+  font-size: 18px;
+}
+
+.custom-monospace {
+  font-family: monospace;
 }
