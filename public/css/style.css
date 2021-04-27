@@ -1,0 +1,30 @@
+.carousel {
+    width:100%;
+    height:360px;
+    margin: 0 auto;
+  }
+
+.custom-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.custom-nav a {
+  color: white;
+}
+
+.custom-title {
+  font-family: 'Lobster', cursive;
+  font-size: 5rem;
+  margin-bottom: 1%;
+}
+
+footer {
+  background-color: #0275d8;
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
+  padding: 5%;
+}
