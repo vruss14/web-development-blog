@@ -26,7 +26,7 @@
                   <a class="nav-link" href="#">DASHBOARD</a>
                 </li>
                 <li class="nav-item ml-5 mr-5">
-                  <a class="nav-link active" href="#">LOG IN</a>
+                  <a class="nav-link" href="#">LOG IN</a>
                 </li>
               </ul>
         </div>
@@ -36,37 +36,28 @@
         <img src="https://picsum.photos/id/201/1800/360?grayscale" alt="Card image cap">
     </div>
 
-    <div id = "form-wrapper">
+    <h1 class="display-1 text-primary ml-5 mt-5 mb-5">Edit a Post</h1>
 
-        <div class="d-flex">
+    <h4 class="ml-5 mt-5">Edit your title below:</h4>
 
-            <section class="w-100 row justify-content-center">
-        
-              <div class="col-10 col-md-6 col-lg-5">
-        
-                <form class="bg-white my-4 p-4 rounded">
-                  <h1 class="display-1 text-primary text-center mb-5">Log In</h1>
-                  <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" class="form-control" placeholder="Enter your username..." required />
-                  </div>
-        
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password..." required />
-                  </div>
+    <div class="input-group mb-3 mt-5 ml-5 mr-5 w-75">
+        <input type="text" class="form-control" id= "user-title-input" placeholder="Title of your post..." aria-label="Post Title" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-dark" id = "save-title" type="button">Save</button>
+        </div>
+    </div>
 
-                  <div class = "d-flex justify-content-between">
-                    <button type="button" class="btn btn-primary mt-3 custom-btns">Log In</button>
-                    <button type="button" class="btn btn-primary mt-3 custom-btns">Sign Up Instead</button>
-                  </div>
+    <div id = "created-title-container"></div>
 
-                </form>
-              </div>
-            </section>
-        
-          </div>
+    <h4 class="ml-5 mt-5">Edit your post below:</h4>
 
+    <textarea placeholder = "Tell the world what's on your mind..." class = "ml-5 mt-5 mr-5 w-75 custom-height p-3" id = "user-content"></textarea>
+
+    <div id = "user-content-container"></div>
+
+    <div class = "mt-5" id = "button-container">
+        <button type="button" class="btn btn-dark ml-5 mr-5 p-3 w-25 custom-btns" id = "content-btn">Save Content</button>
+        <button type="button" class="btn btn-primary ml-5 mr-5 p-3 w-25 custom-btns">Submit Post</button>
     </div>
 
     <footer class = "mt-5">
@@ -76,6 +67,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- <script src = "../js/write.js"></script> -->
+<script src = "../js/write.js"></script>
 </body>
 </html>
