@@ -59,3 +59,15 @@ footer span {
 .custom-btns {
   font-size: 24px;
 }
+
+@media screen and (max-width: 768px) {
+  nav, ul {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
