@@ -1,3 +1,8 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .carousel {
     width:100%;
     height:360px;
@@ -45,4 +50,12 @@ footer span {
 
 .custom-monospace {
   font-family: monospace;
+}
+
+.custom-height {
+  height: 50rem;
+}
+
+.custom-btns {
+  font-size: 24px;
 }
