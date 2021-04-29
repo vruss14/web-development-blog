@@ -1,0 +1,73 @@
+<div class="jumbotron jumbotron-fluid text-center mt-5 bg-primary text-white">
+    <div class="container">
+        <h1 class="display-4 custom-title">YOUR PERSONAL DASHBOARD</h1>
+    </div>
+</div>
+
+<h1 class="display-4 text-primary ml-5 mr-5 mt-5 mb-5 text-center">Posts You've Created:</h1>
+
+<div class="custom-wrapper">
+    <button type="button" class="btn btn-primary w-10" id="content-btn" onclick= "window.location = '/writepost'">+ Create a New Post</button>
+</div>
+
+<div class="custom-wrapper">
+
+    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://picsum.photos/id/201/286/180?grayscale" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Post Title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="/editpost" class="btn btn-dark">Edit Post</a>
+        </div>
+    </div>
+
+    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://picsum.photos/id/2/286/180?grayscale" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Post Title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="/editpost" class="btn btn-dark">Edit Post</a>
+        </div>
+    </div>
+
+    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+        <img class="card-img-top" src="https://picsum.photos/id/366/286/180?grayscale" alt="Card image cap">
+        <div class="card-body text-center">
+            <h5 class="card-title">Post Title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="/editpost" class="btn btn-dark">Edit Post</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="custom-wrapper" id="post-comments">
+    <h1 class="display-4 text-primary ml-5 mr-5 mt-5 mb-5 text-center">Recent Comments on Your Posts:</h1>
+
+    <div class="card w-75 mb-5">
+        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
+        <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </div>
+    </div>
+
+
+    <div class="card w-75 mb-5">
+        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
+        <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </div>
+    </div>
+
+    <div class="card w-75 mb-5">
+        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
+        <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </div>
+    </div>
+</div>
+
+<script src = '../js/home.js'></script>
