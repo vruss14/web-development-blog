@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
-// Need to GET and PUT blog posts by ID
+// Need to GET blog posts by ID
 
 let homeScript = {script: '../js/home.js'};
 
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     res.render('dashboard');
   } catch (err) {
@@ -37,7 +37,7 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-router.get('/viewpost', async (req, res) => {
+router.get('/viewpost', withAuth, async (req, res) => {
   try {
     res.render('singlepost');
   } catch (err) {
