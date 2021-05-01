@@ -25,14 +25,13 @@
                 <li class="nav-item ml-5 mr-5">
                   <a class="nav-link" href="/dashboard">DASHBOARD</a>
                 </li>
-                {{!-- Only displays the else option regardless of log in status --}}
                 {{#if logged_in}}
                 <li class="nav-item ml-5 mr-5">
-                  <a class="nav-link" href="/logout">LOG OUT</a>
+                  <a class="nav-link" id = 'logout' href="/logout">LOG OUT</a>
                 </li>
                 {{else}}
                 <li class="nav-item ml-5 mr-5">
-                  <a class="nav-link" id = "logout" href="/login">LOG IN</a>
+                  <a class="nav-link" href="/login">LOG IN</a>
                 </li>
                 {{/if}}
               </ul>

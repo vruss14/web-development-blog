@@ -3,11 +3,11 @@ const withAuth = require('../utils/auth');
 
 // Need to GET blog posts by ID
 
-let homeScript = {script: '../js/home.js'};
-
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', homeScript);
+    res.render('homepage', { 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -15,7 +15,9 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    res.render('dashboard');
+    res.render('dashboard', { 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -42,7 +44,9 @@ router.get('/signup', async (req, res) => {
 
 router.get('/viewpost', withAuth, async (req, res) => {
   try {
-    res.render('singlepost');
+    res.render('singlepost', { 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -50,7 +54,9 @@ router.get('/viewpost', withAuth, async (req, res) => {
 
 router.get('/writepost', async (req, res) => {
   try {
-    res.render('writepost');
+    res.render('writepost', { 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -58,7 +64,9 @@ router.get('/writepost', async (req, res) => {
 
 router.get('/editpost', async (req, res) => {
   try {
-    res.render('editpost');
+    res.render('editpost', { 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
