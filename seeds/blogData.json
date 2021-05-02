@@ -1,58 +1,86 @@
 [
   {
     "title": "Array Methods",
-    "content": "This is the content description."
+    "content": "Having a thorough understanding of array methods will help you successfully solve algorithm challenges.",
+    "date_created": "4/17/21",
+    "user_id": 1
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Template Literals",
+    "content": "Using template literals can be a helpful alternative to put a string together that includes variables.",
+    "date_created": "4/21/21",
+    "user_id": 2
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Async/Await",
+    "content": "If you are using several callbacks in your code, you may find that using async/await will make more code more readable.",
+    "date_created": "4/22/21",
+    "user_id": 3
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Bootstrap",
+    "content": "When it comes to creating styled HTML pages quickly, using a CSS library such as Bootstrap can be particularly helpful.",
+    "date_created": "4/25/21",
+    "user_id": 4
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Object-Oriented Programming",
+    "content": "When creating full-stack applications, object-oriented programming can help organize your files.",
+    "date_created": "4/27/21",
+    "user_id": 1
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "The MVC Paradigm",
+    "content": "To maintain a concrete separation of concerns, it can be helpful to use the MVC paradigm.",
+    "date_created": "4/27/21",
+    "user_id": 2
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "CSS Animations",
+    "content": "CSS has the built-in functionality to create simple, light-weight animations.",
+    "date_created": "4/28/21",
+    "user_id": 3
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Sequelize",
+    "content": "If you are creating an application with several complex queries, using Sequelize can help ensure that you do not make any MySQL syntax errors.",
+    "date_created": "4/28/21",
+    "user_id": 4
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "ESLint",
+    "content": "Linting can be a great way to catch errors before they become an issue later on.",
+    "date_created": "4/29/21",
+    "user_id": 1
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Common Console Errors and How to Resolve Them",
+    "content": "Many console errors are caused by scope concerns. Make sure that your variables are available to the functions that need them.",
+    "date_created": "4/29/21",
+    "user_id": 2
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Template Engines",
+    "content": "To generate HTML dynamically, template engines such as Handlebars can be a good solution.",
+    "date_created": "4/30/21",
+    "user_id": 3
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Deploying to Heroku",
+    "content": "Heroku will host your application's front-end and back-end, making it a great option for full-stack developers.",
+    "date_created": "4/30/21",
+    "user_id": 4
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Resolving Merge Conflicts",
+    "content": "There isn't a one size fits all when it comes to merge conflicts. Consult with your team to make sure that the resolution you select is the correct option.",
+    "date_created": "5/1/21",
+    "user_id": 1
   },
   {
-    "title": "Array Methods",
-    "content": "This is the content description."
+    "title": "Status Codes",
+    "content": "To create a RESTful API, including status codes in the server responses are essential.",
+    "date_created": "5/1/21",
+    "user_id": 2
   }
 ]

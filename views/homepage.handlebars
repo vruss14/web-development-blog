@@ -35,125 +35,15 @@
 
 <div class="custom-wrapper">
 
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/201/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
+    {{#each blogposts as |blogpost|}}
+        <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+            <img class="card-img-top" src={{format_img}} alt="Card image cap">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{blogpost.title}}</h5>
+                <p class="card-text">Created by {{user.username}} on {{format_date blogpost.date_created}}</p>
+                <a href="/viewpost" class="btn btn-dark">Read More</a>
+            </div>
         </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/2/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/366/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/3/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/370/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/4/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/445/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/48/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/532/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/60/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/668/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/740/286/180?grayscale" alt="Card image cap">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/viewpost" class="btn btn-dark">Read More</a>
-        </div>
-    </div>
-</div>
+    {{/each}}
 
 <script src = "../js/home.js"></script>
