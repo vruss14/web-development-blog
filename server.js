@@ -14,9 +14,13 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
+  resave: true,
+  rolling: true,
+  saveUninitialized: false,
+  // Times out after the user is idle for five minutes (the user is automatically logged out)
+  cookie: {
+    expires: 300 * 1000
+  },
   store: new SequelizeStore({
     db: sequelize
   })
