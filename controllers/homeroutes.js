@@ -28,15 +28,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.get('/', async (req, res) => {
-//   try {
-//     res.render('homepage', { 
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
@@ -67,36 +58,22 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-router.get('/viewpost', withAuth, async (req, res) => {
+router.get('/blogpost/:id', withAuth, async (req, res) => {
   try {
-    res.render('singlepost', { 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/blogpost/:id', async (req, res) => {
-  try {
-    const blogData = await Blogpost.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['title', 'content', 'date', 'user_id'],
-        },
-      ],
-    });
-
+    const blogData = await Blogpost.findByPk(req.params.id);
     const blogpost = blogData.get({ plain: true });
 
-    res.render('blogpost', {
+    res.render('singlepost', {
       ...blogpost,
       logged_in: req.session.logged_in
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+
+    // res.render('singlepost', blogpost);
+
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err)
+      }
 });
 
 router.get('/writepost', async (req, res) => {

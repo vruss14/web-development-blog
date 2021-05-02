@@ -41,7 +41,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{blogpost.title}}</h5>
                 <p class="card-text">Created by {{user.username}} on {{format_date blogpost.date_created}}</p>
-                <a href="/viewpost" class="btn btn-dark">Read More</a>
+                <a href="/blogpost/{{blogpost.id}}" class="btn btn-dark">Read More</a>
             </div>
         </div>
     {{/each}}
