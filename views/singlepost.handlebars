@@ -10,18 +10,24 @@
     <div>
     <h1 class="ml-5 mt-5 display-4 custom-title">Comments:</h1>
 
-    <div class="card w-75 ml-5 mt-5 mb-5">
-        <div class="card-header bg-dark text-white">Comment:</div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    {{#each comments as |comment|}}
+         <div class="card w-75 ml-5 mt-5 mb-5">
+            <div class="card-header bg-dark text-white">Comment by {{user.username}} on {{format_date comment.date_created}}</div>
+            <div class="card-body">
+            <p>{{comment.content}}</p>
+            </div>
         </div>
-    </div>
+    {{/each}}
 
-    <div class="card w-75 ml-5 mt-5 mb-5">
-        <div class="card-header bg-dark text-white">Comment:</div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <form>
+        <div class="card w-75 ml-5 mt-5 mb-5">
+            <label for="new-comment" class="card-header bg-dark text-white">New Comment:</label>
+            <div class="card-body">
+                <input class= "form-control" id = "user-comment" aria-describedby="comment"
+                placeholder="Enter a comment...">
+                <button type="submit" class="btn btn-primary mt-3" id = "comment-btn">Submit</button>
+            </div>
         </div>
-    </div>
+    </form>
 
-<script src = "../js/home.js"></script>
+<script src = "../js/singlepost.js"></script>

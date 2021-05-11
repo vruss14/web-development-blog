@@ -1,8 +1,6 @@
 const router = require('express').Router();
-const { Blogpost, User } = require('../models');
+const { Blogpost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-
-// Need to GET blog posts by ID
 
 router.get('/', async (req, res) => {
   try {
@@ -70,12 +68,26 @@ router.get('/blogpost/:id', withAuth, async (req, res) => {
     });
     const blogpost = blogData.get({ plain: true });
 
+    const commentData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+        blogpost_id: req.params.id
+      }
+    })
+
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    console.log(comments);
+
     res.render('singlepost', {
       ...blogpost,
+      comments,
       logged_in: req.session.logged_in
     });
-
-    // res.render('singlepost', blogpost);
 
     } catch (err) {
         res.status(500).json(err);
