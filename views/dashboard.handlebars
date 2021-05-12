@@ -12,7 +12,18 @@
 
 <div class="custom-wrapper">
 
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+    {{#each authoredposts as |authoredpost|}}
+        <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+            <img class="card-img-top" src={{format_img}} alt="Card image cap">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{authoredpost.title}}</h5>
+                <p class="card-text">Created by {{user.username}} on {{format_date authoredpost.date_created}}</p>
+                <a href="/blogpost/{{authoredpost.id}}" class="btn btn-dark">Edit Post</a>
+            </div>
+        </div>
+    {{/each}}
+
+    {{!-- <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
         <img class="card-img-top" src="https://picsum.photos/id/201/286/180?grayscale" alt="Stock technology image">
         <div class="card-body text-center">
             <h5 class="card-title">Post Title</h5>
@@ -40,7 +51,7 @@
                 content.</p>
             <a href="/editpost" class="btn btn-dark">Edit Post</a>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 

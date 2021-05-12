@@ -26,16 +26,41 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    res.render('dashboard', { 
-      logged_in: req.session.logged_in 
+    const authorData = await Blogpost.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+
+    const authoredposts = authorData.map((authoredPost) => authoredPost.get({ plain: true }));
+
+    res.render('dashboard', {
+      authoredposts,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
+// router.get('/dashboard', withAuth, async (req, res) => {
+//   try {
+//     res.render('dashboard', { 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // Redirects user in case they are already logged into the site
