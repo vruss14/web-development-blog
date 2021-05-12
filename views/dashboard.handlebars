@@ -12,6 +12,7 @@
 
 <div class="custom-wrapper">
 
+{{#if authoredposts}}
     {{#each authoredposts as |authoredpost|}}
         <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
             <img class="card-img-top" src={{format_img}} alt="Card image cap">
@@ -22,63 +23,44 @@
             </div>
         </div>
     {{/each}}
+{{/if}}
 
-    {{!-- <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/201/286/180?grayscale" alt="Stock technology image">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/editpost" class="btn btn-dark">Edit Post</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/2/286/180?grayscale" alt="Stock technology image">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/editpost" class="btn btn-dark">Edit Post</a>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-        <img class="card-img-top" src="https://picsum.photos/id/366/286/180?grayscale" alt="Stock technology image">
-        <div class="card-body text-center">
-            <h5 class="card-title">Post Title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="/editpost" class="btn btn-dark">Edit Post</a>
-        </div>
-    </div> --}}
-
-</div>
+{{!-- Functions like an "else" statement for the #if built-in helper above --}}
+{{#unless authoredposts}}
+<h3 class = "mt-5 mb-5">No posts yet! Create one whenever you're ready! 🐛</h3>
+{{/unless}}
 
 <div class="custom-wrapper" id="post-comments">
     <h1 class="display-4 text-primary ml-5 mr-5 mt-5 mb-5 text-center">Recent Comments on Your Posts:</h1>
 
-    <div class="card w-75 mb-5">
-        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-        </div>
-    </div>
+{{!-- Renders only 5 comments if there are more than 5 comments --}}
 
-
-    <div class="card w-75 mb-5">
-        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+{{#if recentComments}}
+    {{#each recentComments as |comment|}}
+         <div class="card w-75 mt-5 mb-5">
+            <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
+            <div class="card-body">
+            <p>{{comment.dataValues.content}}</p>
+            </div>
         </div>
-    </div>
+    {{/each}}
+{{/if}}
 
-    <div class="card w-75 mb-5">
-        <div class="card-header bg-dark text-white">TITLE OF THE ARTICLE AND DATE</div>
-        <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+{{!-- Renders all comments if there are less than 5 --}}
+
+{{#if yourComments}}
+    {{#each yourComments as |comment|}}
+         <div class="card w-75 mt-5 mb-5">
+            <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
+            <div class="card-body">
+            <p>{{comment.dataValues.content}}</p>
+            </div>
         </div>
-    </div>
+    {{/each}}
+{{/if}}
+
+<h3 class = "mt-5 mb-5">Check back soon for new comments! 🐛</h3>
+
 </div>
 
 <script src = '../js/home.js'></script>

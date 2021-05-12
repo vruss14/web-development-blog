@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 const { Blogpost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+
 
 router.get('/', async (req, res) => {
   try {
@@ -28,6 +30,7 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
+    // First, find all of the blog posts that match the user who is logged in
     const authorData = await Blogpost.findAll({
       include: [
         {
@@ -40,27 +43,71 @@ router.get('/dashboard', withAuth, async (req, res) => {
       }
     })
 
+    // Serialize the data 
     const authoredposts = authorData.map((authoredPost) => authoredPost.get({ plain: true }));
+    const postArray = [];
 
-    res.render('dashboard', {
-      authoredposts,
-      logged_in: req.session.logged_in
-    });
+    // This means that the user has not authored any posts, and therefore there are no comments to display
+    if(!authoredposts.length) {
+      res.render('dashboard', {
+        logged_in: req.session.logged_in
+      });
+      return;
+    }
+
+    // To the postArray, add the IDs of the blog posts that belong to the user who is logged in
+
+    for (let i = 0; i < authoredposts.length; i++) {
+      postArray.push(authoredposts[i].id);
+    }
+
+    // Find all the comments for the blog posts the user has authored
+
+    const yourComments = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+        blogpost_id: {
+          // This is a where clause with multiple conditions; i.e. WHERE X OR Y OR Z
+          [Op.or]: postArray
+        }
+      }
+    })
+
+    // Limits to the top 5 most recent comments for each user's dashboard AKA the last 5 items in the array
+    // If the array is less than 5 items, all comments will be rendered
+
+    if (yourComments.length > 5) {
+      // The top 5 most recent comments is the last five items in the array, ordered backwards (most recent to least recent)
+      const recentComments = yourComments.slice(Math.max(yourComments.length - 5, 0)).reverse();
+
+      res.render('dashboard', {
+        authoredposts,
+        recentComments,
+        logged_in: req.session.logged_in
+      });
+
+    } else if (yourComments.length) {
+      res.render('dashboard', {
+        authoredposts,
+        yourComments,
+        logged_in: req.session.logged_in
+      });
+    } else {
+      res.render('dashboard', {
+        authoredposts,
+        logged_in: req.session.logged_in
+      });
+    }
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
-// router.get('/dashboard', withAuth, async (req, res) => {
-//   try {
-//     res.render('dashboard', { 
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get('/login', (req, res) => {
   // Redirects user in case they are already logged into the site

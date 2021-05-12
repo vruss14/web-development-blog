@@ -26,4 +26,23 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/author/:id', withAuth, async (req, res) => {
+  try {
+    const specificCommentData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+      where: {
+        user_id: req.params.id
+      }
+    })
+    res.status(200).json(specificCommentData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 module.exports = router;
