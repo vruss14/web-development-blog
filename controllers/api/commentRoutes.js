@@ -13,7 +13,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(newComment);
     console.log(req);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -22,7 +22,7 @@ router.get('/', withAuth, async (req, res) => {
     const commentData = await Comment.findAll();
     res.status(200).json(commentData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -41,7 +41,7 @@ router.get('/author/:id', withAuth, async (req, res) => {
     })
     res.status(200).json(specificCommentData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 })
 

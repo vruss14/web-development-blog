@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blogpost, User } = require('../../models');
+const { Blogpost, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -12,13 +12,14 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(newBlogpost);
     console.log(newBlogpost)
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
 // NEW ROUTE TO GET POST FOR EDITING
 
 router.get('/edit/:id', withAuth, async (req, res) => {
+
   try {
     const blogData = await Blogpost.findByPk(req.params.id, {
       include: [
@@ -29,19 +30,24 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       ],
     });
     const blogpost = blogData.get({ plain: true });
+    console.log(blogpost.id);
 
-    res.render('editpost', {
-      ...blogpost,
-      logged_in: req.session.logged_in
-    });
+    // Added layer of protection to make sure users cannot edit or delete posts that are not their own
+
+    if (blogpost.user_id === req.session.user_id) {
+      res.render('editpost', {
+        ...blogpost,
+        logged_in: req.session.logged_in
+      });
+    } else {
+      res.redirect(`/blogpost/${blogpost.id}`);
+    }
 
     } catch (err) {
         res.status(500).json(err);
         console.log(err)
       }
 });
-
-// NEW ROUTE TO EDIT
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
@@ -61,12 +67,11 @@ router.put('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/edit/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blogpost.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: req.body.postId,
       },
     });
 
