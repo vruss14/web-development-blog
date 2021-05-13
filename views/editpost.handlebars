@@ -2,30 +2,23 @@
     <img src="https://picsum.photos/id/201/1800/360?grayscale" alt="Stock technology image">
 </div>
 
-<h1 class="display-1 text-primary ml-5 mt-5 mb-5">Edit a Post</h1>
+<h1 class="display-1 text-primary ml-5 mt-5 mb-5">Edit Mode: {{title}}</h1>
 
-<h4 class="ml-5 mt-5">Edit your title below:</h4>
+<h1 class = "ml-5 mt-5 mb-3 display-4 custom-title">Edit your title below:</h1>
 
 <div class="input-group mb-3 mt-5 ml-5 mr-5 w-75">
-    <input type="text" class="form-control" id="user-title-input" placeholder="Title of your post..."
-        aria-label="Post Title" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-        <button class="btn btn-dark" id="save-title" type="button">Save</button>
-    </div>
+    <input type="text" class="form-control" id="user-title-input" value="{{title}}"
+        aria-label="Post Title">
 </div>
 
-<div id="created-title-container"></div>
+<h1 class = "ml-5 mt-5 mb-3 display-4 custom-title">Edit your post content below:</h1>
 
-<h4 class="ml-5 mt-5">Edit your post below:</h4>
-
-<textarea placeholder="Tell the world what's on your mind..." class="ml-5 mt-5 mr-5 w-75 custom-height p-3"
-    id="user-content"></textarea>
-
-<div id="user-content-container"></div>
+<textarea class="ml-5 mt-5 mr-5 w-75 custom-height p-3"
+    id="user-content">{{content}}</textarea>
 
 <div class="mt-5" id="button-container">
-    <button type="button" class="btn btn-dark ml-5 mr-5 p-3 w-25 custom-btns" id="content-btn">Save Content</button>
-    <button type="button" class="btn btn-primary ml-5 mr-5 p-3 w-25 custom-btns">Submit Post</button>
+    <button type="button" id = 'submit-updates' class="btn btn-primary ml-5 mr-5 p-3 w-25 custom-btns">Submit Updates</button>
+    <button type="button" class="btn btn-danger ml-5 mr-5 p-3 w-25 custom-btns">Delete Post</button>
 </div>
 
-<script src = "../js/write.js"></script>
+<script src = "/../js/edit.js"></script>

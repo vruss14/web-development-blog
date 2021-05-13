@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blogpost } = require('../../models');
+const { Blogpost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -13,6 +13,51 @@ router.post('/', withAuth, async (req, res) => {
     console.log(newBlogpost)
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// NEW ROUTE TO GET POST FOR EDITING
+
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blogpost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+    const blogpost = blogData.get({ plain: true });
+
+    res.render('editpost', {
+      ...blogpost,
+      logged_in: req.session.logged_in
+    });
+
+    } catch (err) {
+        res.status(500).json(err);
+        console.log(err)
+      }
+});
+
+// NEW ROUTE TO EDIT
+
+router.put('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const updatedBlogpost = await Blogpost.update({ 
+      title: req.body.title,
+      content: req.body.content
+      }, 
+      { where: 
+        { id: req.body.postId } 
+      });
+
+    res.status(200).json(updatedBlogpost);
+    console.log(updatedBlogpost)
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
   }
 });
 

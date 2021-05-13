@@ -19,7 +19,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{authoredpost.title}}</h5>
                 <p class="card-text">Created by {{user.username}} on {{format_date authoredpost.date_created}}</p>
-                <a href="/blogpost/{{authoredpost.id}}" class="btn btn-dark">Edit Post</a>
+                <a href="/api/blogposts/edit/{{authoredpost.id}}" class="btn btn-dark">Edit Post</a>
             </div>
         </div>
     {{/each}}
