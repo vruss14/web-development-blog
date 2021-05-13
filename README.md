@@ -2,9 +2,13 @@
 
 ## Description
 
-This full-stack application utilizes back-end technologies such as Node.js, Express.js, and Sequelize, along with Handlebars as a template engine to render HTML dynamically. The application also uses Bootstrap for styling, as well as Lorem Picsum for placeholder images. A user cannot access their personal dashboard and the blog posts on the site until they have logged in or signed up. Once they have logged in, then the user can access their personal dashboard and can view all posts on the site.
+This full-stack application utilizes back-end technologies such as Node.js, Express.js, and Sequelize, along with Handlebars as a template engine to render HTML dynamically. The application also uses Bootstrap for styling, as well as Lorem Picsum for placeholder images. A user cannot access their personal dashboard and read the blog posts on the site until they have logged in or signed up. 
+
+Once they have logged in, then the user can access their personal dashboard and can view all posts on the site. The user's personal dashboard includes the posts they have authored, along with the top five most recent comments on their posts. Users can write posts, edit existing posts that they have authored, and delete posts that they have authored.
 
 I learned a lot about what it takes to create full-stack applications by creating this blog, and I also learned some things about Bootstrap that I didn't know before. I really enjoyed designing the pages for the site, and I loved being able to use Lorem Picsum so that realistic images could be used as placeholders. After troubleshooting several errors as I built the site, I became more confident in my abilities to problem-solve and to use the technologies mentioned above.
+
+One of the biggest challenges was figuring out how to display the five most recent comments for each author. I found the blog post IDs that matched the author, then found the comments on those blog posts, then took the array of comments and uses .slice() and .reverse() so that the five most recent comments are displayed in order from most recent to least recent. If the user does not have five comments, then all comments in the array are displayed. If the user has no comments on their posts yet, then they will just see the message on the page to check back soon.
 
 A few ideas for future development include:
 
@@ -23,7 +27,7 @@ A few ideas for future development include:
             
 ## Installation
 
-For this application to run correctly, run ```npm init -y ``` in the working directory of your choice. Next, install the relevant dependencies by running ```npm i```. Alternatively, you can install the dependencies one at a time. Please note that it may take a few minutes for all dependencies to download on your local machine.
+For this application to run correctly on your local machine, run ```npm init -y ``` in the working directory of your choice. Next, install the relevant dependencies by running ```npm i```. Alternatively, you can install the dependencies one at a time. Please note that it may take a few minutes for all dependencies to download on your local machine.
 
 You will also need to create a .env file and include your username, password, and database name for MySQL:
 
@@ -42,10 +46,12 @@ To start the application from the command line after all installations have been
 A screenshot of the homepage:
 
 ![screenshot](homepage-screenshot.png)
+
+This application is also deployed on Heroku.
             
 ## Usage
 
-This application is still in development, but users can still test the applicaton with existing seed data, create new users, and view content after logging into the site.
+This application was created for educational purposes and can currently handle blog posts that are short (1–3 sentences).
 
 ## License
 
