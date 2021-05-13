@@ -60,6 +60,11 @@ footer span {
   font-size: 24px;
 }
 
+#check-back-soon {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 @media screen and (max-width: 768px) {
   nav, ul {
     flex-direction: column;

@@ -41,13 +41,25 @@ DB_NAME=''
 
 You will need to create the database in your own MySQL Workbench to ensure that the application runs properly.
 
-To start the application from the command line after all installations have been complete, run the command ```npm run seed``` to seed data to the database you created, then run ```npm start```. You can then use a tool such as Insomnia to test all routes.
+To start the application from the command line after all installations have been complete, run the command ```npm run seed``` to seed data to the database you created, then run ```npm start```. You can then use a tool such as Insomnia to test all routes. This application runs locally at port 3001.
 
-A screenshot of the homepage:
+A view of the home page:
 
-![screenshot](homepage-screenshot.png)
+![homepage](assets/homepage-screenshot-full.png)
 
-This application is also deployed on Heroku.
+An example dashboard:
+
+![dashboard](assets/dashboard-screenshot.png)
+
+Writing a post:
+
+![writing a post](assets/writepost-screenshot.png)
+
+Editing/deleting a post:
+
+![editing or deleting a post](assets/editpost-screenshot.png)
+
+This application is also deployed on Heroku: https://debugged-and-deconstructed.herokuapp.com/
             
 ## Usage
 

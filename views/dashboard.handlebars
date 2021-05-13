@@ -12,54 +12,56 @@
 
 <div class="custom-wrapper">
 
-{{#if authoredposts}}
-    {{#each authoredposts as |authoredpost|}}
-        <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
-            <img class="card-img-top" src={{format_img}} alt="Card image cap">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{authoredpost.title}}</h5>
-                <p class="card-text">Created by {{user.username}} on {{format_date authoredpost.date_created}}</p>
-                <a href="/api/blogposts/edit/{{authoredpost.id}}" class="btn btn-dark">Edit Post</a>
+    {{#if authoredposts}}
+        {{#each authoredposts as |authoredpost|}}
+            <div class="card ml-5 mr-5 mt-5 mb-5" style="width: 18rem;">
+                <img class="card-img-top" src={{format_img}} alt="Technology image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{authoredpost.title}}</h5>
+                    <p class="card-text">Created by {{user.username}} on {{format_date authoredpost.date_created}}</p>
+                    <a href="/api/blogposts/edit/{{authoredpost.id}}" class="btn btn-dark">Edit Post</a>
+                </div>
             </div>
-        </div>
-    {{/each}}
-{{/if}}
+        {{/each}}
+    {{/if}}
 
-{{!-- Functions like an "else" statement for the #if built-in helper above --}}
-{{#unless authoredposts}}
-<h3 class = "mt-5 mb-5">No posts yet! Create one whenever you're ready! 🐛</h3>
-{{/unless}}
+    {{!-- Functions like an "else" statement for the #if built-in helper above --}}
+    {{#unless authoredposts}}
+    <h3 class = "mt-5 mb-5">No posts yet! Create one whenever you're ready! 🐛</h3>
+    {{/unless}}
 
-<div class="custom-wrapper" id="post-comments">
-    <h1 class="display-4 text-primary ml-5 mr-5 mt-5 mb-5 text-center">Recent Comments on Your Posts:</h1>
+    <div class="custom-wrapper" id="post-comments">
+        <h1 class="display-4 text-primary ml-5 mr-5 mt-5 mb-5 text-center">Recent Comments on Your Posts:</h1>
 
-{{!-- Renders only 5 comments if there are more than 5 comments --}}
+    {{!-- Renders only 5 comments if there are more than 5 comments --}}
 
-{{#if recentComments}}
-    {{#each recentComments as |comment|}}
-         <div class="card w-75 mt-5 mb-5">
-            <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
-            <div class="card-body">
-            <p>{{comment.dataValues.content}}</p>
+    {{#if recentComments}}
+        {{#each recentComments as |comment|}}
+            <div class="card w-75 mt-5 mb-5">
+                <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
+                <div class="card-body">
+                <p>{{comment.dataValues.content}}</p>
+                </div>
             </div>
-        </div>
-    {{/each}}
-{{/if}}
+        {{/each}}
+    {{/if}}
 
-{{!-- Renders all comments if there are less than 5 --}}
+    {{!-- Renders all comments if there are less than 5 --}}
 
-{{#if yourComments}}
-    {{#each yourComments as |comment|}}
-         <div class="card w-75 mt-5 mb-5">
-            <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
-            <div class="card-body">
-            <p>{{comment.dataValues.content}}</p>
+    {{#if yourComments}}
+        {{#each yourComments as |comment|}}
+            <div class="card w-75 mt-5 mb-5">
+                <div class="card-header bg-dark text-white">Comment on {{format_date comment.dataValues.date_created}}</div>
+                <div class="card-body">
+                <p>{{comment.dataValues.content}}</p>
+                </div>
             </div>
-        </div>
-    {{/each}}
-{{/if}}
+        {{/each}}
+    {{/if}}
 
-<h3 class = "mt-5 mb-5">Check back soon for new comments! 🐛</h3>
+    <div id = "check-back-soon">
+        <h3 class = "mt-5 mb-5" >Check back soon for new comments! 🐛</h3>
+    </div>
 
 </div>
 
