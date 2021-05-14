@@ -1,5 +1,7 @@
 # Web Development Blog
 
+A simple blog where web developers can post their latest tips/discoveries.
+
 ## Description
 
 This full-stack application utilizes back-end technologies such as Node.js, Express.js, and Sequelize, along with Handlebars as a template engine to render HTML dynamically. The application also uses Bootstrap for styling, as well as Lorem Picsum for placeholder images. A user cannot access their personal dashboard and read the blog posts on the site until they have logged in or signed up. 
@@ -15,6 +17,21 @@ A few ideas for future development include:
 - Learning how to store content that is several paragraphs long (i.e. a full blog post) 
 - Creating stats for each user (# of posts created, # of comments)
 - Writing several posts about my personal experiences as a web developer
+
+## Technologies Used
+
+- Handlebars.js
+- CSS
+- Bootstrap
+- JavaScript
+- jQuery
+- Moment.js
+- Node.js
+- Express.js
+- MySQL
+- Sequelize
+- Bcrypt
+- Lorem Picsum
 
 ## Table of Contents
 
